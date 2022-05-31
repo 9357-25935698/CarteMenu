@@ -1,0 +1,44 @@
+{% extends 'layouts/test.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+{% for message in app.flashes('Succès') %}
+    <div class="alert alert-sucess">
+    <h3>{{ message }}</h3>
+    </div>
+
+{% endfor %}
+<br>
+<div class="conatainer">
+<h2>Editer des plats</h2>
+<br>
+<table class="table table-striped">
+   <thead>
+       <tr>
+         <td>Nr.Ordre</td>
+         <td>Name</td>
+         <td>Description</td>
+         <td>Categorie</td>
+         <td>Prix</td>
+         <td>Supprimer</td>
+         <td><a href ="{{ path ('app_create')}}">Create</a></td>
+       </tr>
+   </thead>
+   <tbody>
+   {% for plats in plat %}
+       <tr>
+         <td>{{plats.id}}</td>
+         <td><a href ="{{ path ('app_afficher',{id: plats.id}) }}">{{plats.name}}</a></td>
+         <td>{{plats.description}}</td> 
+         <td>{{plats.categorie}}</td>        
+         <td>{{plats.Prix}}</td>
+         <td><a href ="{{ path ('app_retirer',{id: plats.id}) }}">X</a></td>
+         <td></td>
+       </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

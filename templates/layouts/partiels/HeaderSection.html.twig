@@ -1,0 +1,35 @@
+<!-- Header section -->
+	<header class="header-section clearfix">
+		<a href="{{path('app_menu')}}"class="site-logo">
+			<img src="{{asset('img/logo.png')}}" alt="">
+		</a>
+		<div class="header-right">
+			<div class="user-panel">
+			    
+				{% if app.user is null %}
+				<a href="{{path('app_login')}}" class="login">Connexion</a>
+				{% else %}
+				<a href="{{path('app_logout')}}">Deconnexion</a>
+				{% endif %}
+			</div> 
+		</div>
+		<ul class="main-menu">
+			<li><a href="{{path('app_home')}}">Home</a></li>
+			<li><a href="{{path('app_menu')}}">CarteMenu</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="{{path('app_inscription')}}">Inscription</a></li>
+			<li><a href="{{path('app_contact')}}">Contact</a></li>
+			
+			<li><a href="#">Chefs</a>
+				<ul class="sub-menu"> 
+					<li><a href="{{path('app_plats')}}">Plats</a></li>
+					<li><a href="{{path('app_create')}}">Create</a></li>
+					<li><a href="artist.html">Artist</a></li>
+					<li><a href="{{path('app_logout')}}">Déconnecter</a></li>
+					
+				</ul>
+			</li>
+            
+		</ul>
+	</header>
+	<!-- Header section end -->
